@@ -1,0 +1,45 @@
+
+<div class="w-full">
+
+  <div class="card flex justify-center">
+    <img src="/assets/images/bandera-mayo.png" alt="Bandera Mayo" class="w-1/6">
+  </div>
+
+  <div class="card flex justify-center">
+    <p-card header="Traductor Yoremnokki" class="w-8/12">
+      <div>
+        <p-floatLabel>
+          <input pInputText id="username" [(ngModel)]="searchValue" class="w-full"  (input)="dt1.filterGlobal($any($event.target).value || '', 'contains')"  />
+          <label for="username" class="text-gray-950">Escribe tu palabra </label>
+        </p-floatLabel>
+      </div>
+    </p-card>
+  </div>
+
+  <div class="flex justify-center mt-4">
+    <p-card class="w-8/12">
+      <p-table
+        #dt1
+        [value]="translations"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="['es', 'mfy']"
+        [paginator]="true"
+        [rows]="5"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [rowsPerPageOptions]="[5, 10, 20]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Español</th>
+                <th>Yoremnokki</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-translation>
+            <tr>
+                <td>{{ translation.es }}</td>
+                <td>{{ translation.mfy }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+  </p-card>
+  </div>
+</div>
