@@ -5,7 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
-import { Table, TableModule } from 'primeng/table';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-dictionary',
@@ -24,29 +24,22 @@ import { Table, TableModule } from 'primeng/table';
   styleUrl: './dictionary.component.scss'
 })
 export class DictionaryComponent implements OnInit {
-  value = '';
   url = '/assets/data.json';
   translations = [
     {
-      es: 'hola',
-      mfy: 'hola'
-    },
-    {
-      es: 'adios',
-      mfy: 'adios'
+      es: '',
+      mfy: ''
     }
   ];
   searchValue = '';
+  loading = true;
 
   ngOnInit() {
     fetch(this.url).then(res => res.json())
     .then(json => {
       this.translations = json;
-    });
-  }
-
-  clear(table: Table) {
-    table.clear();
-    this.searchValue = ''
+    }).finally(() => {
+      this.loading = false;
+    })
   }
 }

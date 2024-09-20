@@ -9,7 +9,11 @@
     <p-card header="Traductor Yoremnokki" class="w-full lg:w-8/12">
       <div>
         <p-floatLabel>
-          <input pInputText id="username" [(ngModel)]="searchValue" class="w-full"  (input)="dt1.filterGlobal($any($event.target).value || '', 'contains')"  />
+          <input pInputText
+            id="search"
+            [(ngModel)]="searchValue"
+            class="w-full"
+            (input)="dt1.filterGlobal($any($event.target).value || '', 'contains')"  />
           <label for="username" class="text-gray-950">Escribe tu palabra </label>
         </p-floatLabel>
       </div>
@@ -26,7 +30,8 @@
         [paginator]="true"
         [rows]="5"
         [tableStyle]="{ 'min-width': '50rem' }"
-        [rowsPerPageOptions]="[5, 10, 20]">
+        [rowsPerPageOptions]="[5, 10, 20]"
+        [loading]="loading">
         <ng-template pTemplate="header">
             <tr>
                 <th>Español</th>

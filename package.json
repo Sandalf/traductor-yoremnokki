@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "analyze-sourcemap": "ng build --source-map && source-map-explorer dist/traductor-yoremnokki/browser"
   },
   "private": true,
   "dependencies": {
