@@ -2,11 +2,11 @@
 <div class="w-full">
 
   <div class="card flex justify-center">
-    <img src="/assets/images/bandera-mayo.png" alt="Bandera Mayo" class="w-1/6">
+    <img src="/assets/images/bandera-mayo.png" alt="Bandera Mayo" class="w-1/2 lg:w-1/6">
   </div>
 
   <div class="card flex justify-center">
-    <p-card header="Traductor Yoremnokki" class="w-8/12">
+    <p-card header="Traductor Yoremnokki" class="w-full lg:w-8/12">
       <div>
         <p-floatLabel>
           <input pInputText id="username" [(ngModel)]="searchValue" class="w-full"  (input)="dt1.filterGlobal($any($event.target).value || '', 'contains')"  />
@@ -17,7 +17,7 @@
   </div>
 
   <div class="flex justify-center mt-4">
-    <p-card class="w-8/12">
+    <p-card class="w-full lg:w-8/12">
       <p-table
         #dt1
         [value]="translations"
